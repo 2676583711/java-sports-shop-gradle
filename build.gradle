@@ -1,0 +1,130 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'cn.zhou'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+//用来生成Eclipseweb项目的插件（web-tool-platform）\
+apply plugin: 'eclipse-wtp' 
+
+repositories {
+//    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '3.8.1'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile group: 'junit', name: 'junit', version: '4.12'
+
+//＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+//    <!-- https:/ / mvnrepository.com / artifact / xdoclet / xdoclet-- >
+    compile group: "xdoclet", name: 'xdoclet', version: '1.2.3'
+
+//  　https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit 　
+//    gradle找不到先屏蔽``
+//    < !--jgit-- >
+//    compile group: "org.eclipse.jgit", name: 'org.eclipse.jgit', version: '5.2.1.201812262042 - r'
+
+// ###############< !--自制分页包-- >###########################
+    compile group: "cn.zhou", name: 'divide-page', version: '1.0'
+
+//    < !--  spring,springmvc相关jar包-- >
+    def spring = '4.3.9.RELEASE'
+    compile group: "org.springframework", name: 'spring-core', version: spring
+    compile group: "org.springframework", name: 'spring-web', version: spring
+    compile group: "org.springframework", name: 'spring-aspects', version: spring
+    compile group: "org.springframework", name: 'spring-context-support', version: spring
+    compile group: 'org.springframework', name: 'spring-webmvc', version: spring
+    compile group: "org.springframework", name: 'spring-jdbc', version: spring
+    compile group: "org.springframework", name: 'spring-tx', version: spring
+    compile group: "org.springframework", name: 'spring-instrument', version: spring
+    compile group: "org.springframework", name: 'spring-instrument-tomcat', version: spring
+    compile group: "org.junit.jupiter", name: 'junit-jupiter-api', version: '5.3.2'
+    compile group: "org.springframework", name: 'spring-test', version: spring
+
+
+// < !--springmvc 转 Json-- >
+    compile group: "org.codehaus.jackson", name: 'jackson-mapper-asl', version: '1.9.12'
+    compile group: "org.codehaus.jackson", name: 'jackson-core-asl', version: '1.9.12'
+
+
+//    < !--freemarker-- >
+    compile group: "freemarker", name: 'freemarker', version: '2.3.9'
+
+
+//    < !--with mybatis - spring-- >
+    compile group: "org.mybatis", name: 'mybatis', version: '3.2.7'
+    compile group: "org.mybatis", name: 'mybatis-spring', version: '1.2.2'
+
+//    < !--jdbc driver-- >
+    compile group: "mysql", name: 'mysql-connector-java', version: '8.0.15'
+
+//    < !--connect pool with c3p0-- >
+    compile group: "c3p0", name: 'c3p0', version: '0.9.1.2'
+
+//    < !--apache commons jar -- >
+    compile group: "commons-collections", name: 'commons-collections', version: '1.0'
+    compile group: "commons-fileupload", name: 'commons-fileupload', version: '1.4'
+    compile group: "org.apache.commons", name: 'commons-lang3', version: '3.1'
+
+    compile group: "cn.zhou", name: 'taglibs-standard-impl', version: '1.2.5'
+    compile group: "cn.zhou", name: 'taglibs-standard-spec', version: '1.2.5'
+
+    compile group: "commons-codec", name: 'commons-codec', version: '1.6'
+//    < !--analyze xml use dom4j-- >
+
+    compile group: "dom4j", name: 'dom4j', version: '1.6.1'
+
+
+//            < !--about servlet -- >
+    compile group: "javax.servlet", name: 'jstl', version: '1.2'
+    compile group: "taglibs", name: 'standard', version: '1.1.2'
+
+//    compile group: "javax.servlet ", name: 'javax.servlet-api', version: '3.0.1'
+
+    compile group: "org.slf4j", name: 'slf4j-log4j12', version: '1.6.6'
+
+    compile group: "log4j", name: 'log4j', version: '1.2.17'
+    compile group: "org.slf4j", name: 'slf4j-api', version: '1.6.6'
+
+    compile group: "javax.activation", name: 'activation', version: '1.1.1'
+
+//    < !--memcached-- >
+    compile group: "com.google.code.maven-play-plugin.spy",
+            name: 'memcached', version: '2.4.2'
+
+
+//    providedCompile group: "com.danga", name: 'memcached', version: '2.0.1'
+
+//    providedCompile group: "memcached-util", name: 'memcached', version: '1.1'
+
+    compile group: "cglib", name: 'cglib', version: '2.2.2'
+    compile group: "net.fckeditor", name: 'java-core', version: '2.6'
+
+
+//    providedCompile group: "oscache", name: 'oscache', version: '2.4.1'
+//   < !--https: / / mvnrepository . com / artifact / opensymphony / oscache-- >
+    compile group: "opensymphony", name: 'oscache', version: '2.4.1'
+
+    //            < !--jerson-- >
+    compile group: "com.sun.jersey", name: 'jersey-client', version: '1.18.1'
+
+
+//            < !--jcaptcha-- >
+//    < !--https ://mvnrepository.com/artifact/com.octo.captcha/jcaptcha -->
+    compile group: "com.octo.captcha", name: 'jcaptcha', version: '1.0'
+
+//< !--https: / / mvnrepository . com / artifact / org.freemarker / freemarker-- >
+    compile group: "org.freemarker", name: 'freemarker', version: '2.3.28'
+
+    compile group: "org.json", name: 'json', version: '20160810'
+    
+    //使用hibernate创建数据库表　jar包
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.0.Final'
+
+}
